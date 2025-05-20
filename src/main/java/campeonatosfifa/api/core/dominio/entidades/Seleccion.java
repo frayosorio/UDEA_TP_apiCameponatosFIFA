@@ -17,9 +17,9 @@ public class Seleccion {
     @SequenceGenerator(name = "secuencia_campeonato", sequenceName = "secuencia_campeonato", allocationSize = 1)
     @Column(name = "id")
     private int id;
-    @Column(name = "pais", unique = true, length = 100)
+    @Column(name = "pais", unique = true, length = 100, nullable = false)
     private String nombre;
-    @Column(name = "entidad")
+    @Column(name = "entidad", nullable = false)
     private String entidad;
 
     public Seleccion() {

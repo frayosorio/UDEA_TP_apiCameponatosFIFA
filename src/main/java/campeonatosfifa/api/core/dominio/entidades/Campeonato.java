@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -18,11 +19,12 @@ public class Campeonato {
     @SequenceGenerator(name = "secuencia_campeonato", sequenceName = "secuencia_campeonato", allocationSize = 1)
     @Column(name = "id")
     private int id;
-    @Column(name = "campeonato", unique = true, length = 100)
+    @Column(name = "campeonato", unique = true, length = 100, nullable = false)
     private String nombre;
-    @Column(name = "año")
+    @Column(name = "año", nullable = false)
     private int año;
 
+    @ManyToOne
     @JoinColumn(name = "idpais", referencedColumnName = "id")
     private Seleccion paisOrganizador;
 
