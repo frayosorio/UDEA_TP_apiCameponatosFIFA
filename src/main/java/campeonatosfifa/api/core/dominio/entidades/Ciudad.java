@@ -15,8 +15,8 @@ import jakarta.persistence.Table;
 public class Ciudad {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "secuencia_ciudad")
-    @SequenceGenerator(name = "secuencia_ciudad", sequenceName = "secuencia_ciudad", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "ciudad_id_seq")
+    @SequenceGenerator(name = "ciudad_id_seq", sequenceName = "ciudad_id_seq", allocationSize = 1)
     @Column(name = "id")
     private int id;
 

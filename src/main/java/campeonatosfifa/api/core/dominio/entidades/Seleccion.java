@@ -13,8 +13,8 @@ import jakarta.persistence.Table;
 public class Seleccion {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "secuencia_pais")
-    @SequenceGenerator(name = "secuencia_campeonato", sequenceName = "secuencia_campeonato", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "pais_id_seq")
+    @SequenceGenerator(name = "pais_id_seq", sequenceName = "pais_id_seq", allocationSize = 1)
     @Column(name = "id")
     private int id;
     @Column(name = "pais", unique = true, length = 100, nullable = false)

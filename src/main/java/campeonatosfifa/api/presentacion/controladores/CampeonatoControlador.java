@@ -8,42 +8,43 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import campeonatosfifa.api.core.dominio.entidades.Seleccion;
-import campeonatosfifa.api.core.interfaces.servicios.ISeleccionServicio;
+import campeonatosfifa.api.core.dominio.entidades.Campeonato;
+import campeonatosfifa.api.core.dominio.entidades.Campeonato;
+import campeonatosfifa.api.core.interfaces.servicios.ICampeonatoServicio;
 
 @RestController
-@RequestMapping("/api/selecciones")
-public class SeleccionControlador {
+@RequestMapping("/api/campeonatos")
+public class CampeonatoControlador {
 
-    private ISeleccionServicio servicio;
+    private ICampeonatoServicio servicio;
 
-    public SeleccionControlador(ISeleccionServicio servicio) {
+    public CampeonatoControlador(ICampeonatoServicio servicio) {
         this.servicio = servicio;
     }
 
-    @RequestMapping(value = "/listar")
-    public List<Seleccion> listar() {
+    @RequestMapping(value = "/listar", method = RequestMethod.GET)
+    public List<Campeonato> listar() {
         return servicio.listar();
     }
 
     @RequestMapping(value = "/obtener/{id}")
-    public Seleccion obtener(@PathVariable int id) {
+    public Campeonato obtener(@PathVariable int id) {
         return servicio.obtener(id);
     }
 
-    @RequestMapping(value = "/buscar/{dato}", method = RequestMethod.GET)
-    public List<Seleccion> buscar(@PathVariable String dato) {
+    @RequestMapping(value = "/buscar/{dato}")
+    public List<Campeonato> buscar(@PathVariable String dato) {
         return servicio.buscar(dato);
     }
 
     @RequestMapping(value = "/agregar", method = RequestMethod.POST)
-    public Seleccion agregar(@RequestBody Seleccion seleccion) {
-        return servicio.agregar(seleccion);
+    public Campeonato agregar(@RequestBody Campeonato campeonato) {
+        return servicio.agregar(campeonato);
     }
 
     @RequestMapping(value = "/modificar", method = RequestMethod.PUT)
-    public Seleccion modificar(@RequestBody Seleccion seleccion) {
-        return servicio.modificar(seleccion);
+    public Campeonato modificar(@RequestBody Campeonato campeonato) {
+        return servicio.modificar(campeonato);
     }
 
     @RequestMapping(value = "/eliminar/{id}", method = RequestMethod.DELETE)
